@@ -1,0 +1,212 @@
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { MessageCircle, Mail, Fuel, Users, Gauge, Shield } from "lucide-react";
+
+interface TwoWheelerSectionProps {
+  onWhatsApp: (service?: string) => void;
+  onEmail: (service: string) => void;
+}
+
+const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
+  const bikes = [
+    {
+      name: "Royal Enfield Classic 350",
+      description: "The perfect companion for mountain roads. Built to conquer any terrain with style and reliability.",
+      image: "photo-1558618666-fcd25c85cd64",
+      price: "₹1,200/day",
+      features: ["350cc Engine", "2 Person Capacity", "Highway Cruiser", "Fuel Efficient"],
+      specs: {
+        engine: "350cc",
+        mileage: "35-40 kmpl",
+        capacity: "2 Riders",
+        type: "Cruiser"
+      },
+      popular: true
+    },
+    {
+      name: "Royal Enfield Himalayan",
+      description: "Adventure-ready beast designed for the mountains. Your ticket to explore the unexplored.",
+      image: "photo-1568605117036-5fe5e7bab0b7",
+      price: "₹1,500/day",
+      features: ["411cc Engine", "Off-road Ready", "Adventure Bike", "Long Range Tank"],
+      specs: {
+        engine: "411cc",
+        mileage: "30-35 kmpl",
+        capacity: "2 Riders",
+        type: "Adventure"
+      },
+      popular: false
+    },
+    {
+      name: "Honda Activa 6G",
+      description: "Smooth, reliable, and perfect for comfortable rides around Kasol and nearby valleys.",
+      image: "photo-1571068316344-75bc76f77890",
+      price: "₹800/day",
+      features: ["110cc Engine", "Automatic", "City Comfort", "Easy Handling"],
+      specs: {
+        engine: "110cc",
+        mileage: "50-55 kmpl",
+        capacity: "2 Riders",
+        type: "Scooter"
+      },
+      popular: false
+    },
+    {
+      name: "Bajaj Pulsar NS200",
+      description: "Sporty performance meets mountain adventure. Feel the thrill on every curve.",
+      image: "photo-1558454114-f6aa5e0623e5",
+      price: "₹1,000/day",
+      features: ["200cc Engine", "Sporty Design", "Performance Bike", "Mountain Ready"],
+      specs: {
+        engine: "200cc",
+        mileage: "35-40 kmpl",
+        capacity: "2 Riders",
+        type: "Sports"
+      },
+      popular: false
+    }
+  ];
+
+  return (
+    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-black/10 to-transparent">
+      <div className="container mx-auto">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 mb-6">
+            <Gauge className="h-5 w-5 text-blue-400" />
+            <span className="text-sm font-medium text-white">Premium Rentals</span>
+          </div>
+          <h3 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            Ride the{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
+              Mountains
+            </span>
+          </h3>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Choose from our premium collection of two-wheelers. From classic cruisers 
+            to adventure beasts, find your perfect ride for the mountain roads.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {bikes.map((bike, index) => (
+            <Card key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url('https://images.unsplash.com/${bike.image}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')`
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                
+                {bike.popular && (
+                  <Badge className="absolute top-4 left-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold">
+                    Most Popular
+                  </Badge>
+                )}
+                
+                <div className="absolute bottom-4 right-4">
+                  <Badge variant="secondary" className="bg-white/90 text-gray-900 font-bold text-lg px-4 py-2">
+                    {bike.price}
+                  </Badge>
+                </div>
+              </div>
+              
+              <CardHeader className="pb-3">
+                <CardTitle className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  {bike.name}
+                </CardTitle>
+                <p className="text-gray-300 text-base leading-relaxed">
+                  {bike.description}
+                </p>
+              </CardHeader>
+              
+              <CardContent className="space-y-6">
+                {/* Specifications */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/5 rounded-lg p-3 text-center">
+                    <Fuel className="h-5 w-5 text-blue-400 mx-auto mb-1" />
+                    <div className="text-xs text-gray-400">Engine</div>
+                    <div className="text-sm font-semibold text-white">{bike.specs.engine}</div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 text-center">
+                    <Gauge className="h-5 w-5 text-green-400 mx-auto mb-1" />
+                    <div className="text-xs text-gray-400">Mileage</div>
+                    <div className="text-sm font-semibold text-white">{bike.specs.mileage}</div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 text-center">
+                    <Users className="h-5 w-5 text-purple-400 mx-auto mb-1" />
+                    <div className="text-xs text-gray-400">Capacity</div>
+                    <div className="text-sm font-semibold text-white">{bike.specs.capacity}</div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 text-center">
+                    <Shield className="h-5 w-5 text-orange-400 mx-auto mb-1" />
+                    <div className="text-xs text-gray-400">Type</div>
+                    <div className="text-sm font-semibold text-white">{bike.specs.type}</div>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div>
+                  <h5 className="text-white font-semibold mb-3">Key Features:</h5>
+                  <div className="grid grid-cols-2 gap-2">
+                    {bike.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center space-x-2 text-sm text-gray-300">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={() => onWhatsApp(`${bike.name} rental`)}
+                    className="flex-1 bg-green-500/80 hover:bg-green-600 backdrop-blur-sm border border-green-400/50 text-white flex items-center justify-center space-x-2"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    <span>Book on WhatsApp</span>
+                  </Button>
+                  <Button
+                    onClick={() => onEmail(`${bike.name} rental`)}
+                    variant="outline"
+                    className="flex-1 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm flex items-center justify-center space-x-2"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>Email Query</span>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Additional Info */}
+        <div className="mt-16 text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <h4 className="text-2xl font-bold text-white mb-4">Why Choose Our Rentals?</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
+            <div>
+              <Shield className="h-8 w-8 text-blue-400 mx-auto mb-3" />
+              <h5 className="font-semibold text-white mb-2">Fully Insured</h5>
+              <p className="text-sm">All vehicles come with comprehensive insurance coverage</p>
+            </div>
+            <div>
+              <Fuel className="h-8 w-8 text-green-400 mx-auto mb-3" />
+              <h5 className="font-semibold text-white mb-2">Well Maintained</h5>
+              <p className="text-sm">Regular servicing and quality checks before every rental</p>
+            </div>
+            <div>
+              <Users className="h-8 w-8 text-orange-400 mx-auto mb-3" />
+              <h5 className="font-semibold text-white mb-2">24/7 Support</h5>
+              <p className="text-sm">Round-the-clock assistance for any issues during your ride</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TwoWheelerSection;
