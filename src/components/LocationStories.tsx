@@ -36,28 +36,34 @@ const LocationStories = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Easy': return 'text-green-400 bg-green-400/10';
-      case 'Moderate': return 'text-orange-400 bg-orange-400/10';
-      case 'Hard': return 'text-red-400 bg-red-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      case 'Easy': return 'text-green-700 bg-green-100 border-green-300';
+      case 'Moderate': return 'text-orange-700 bg-orange-100 border-orange-300';
+      case 'Hard': return 'text-red-700 bg-red-100 border-red-300';
+      default: return 'text-gray-700 bg-gray-100 border-gray-300';
     }
   };
 
   return (
-    <section id="stories" className="py-24 px-4 bg-gradient-to-b from-black/20 to-transparent">
-      <div className="container mx-auto">
+    <section id="stories" className="py-24 px-4 bg-gradient-to-b from-white/70 via-emerald-50/50 to-white/70 backdrop-blur-sm relative">
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+        }}
+      />
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 mb-6">
-            <Star className="h-5 w-5 text-yellow-400" />
-            <span className="text-sm font-medium text-white">Legendary Destinations</span>
+          <div className="inline-flex items-center space-x-2 bg-emerald-100/80 backdrop-blur-sm border border-emerald-200 rounded-full px-6 py-3 mb-6">
+            <Star className="h-5 w-5 text-emerald-600" />
+            <span className="text-sm font-medium text-emerald-800">Legendary Destinations</span>
           </div>
-          <h3 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
+          <h3 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
             Stories That{" "}
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
               Inspire
             </span>
           </h3>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Each destination in Kasol has a tale to tell. Discover the legends, 
             myths, and real adventures that make these places truly magical.
           </p>
@@ -65,7 +71,7 @@ const LocationStories = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {stories.map((story, index) => (
-            <Card key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden">
+            <Card key={index} className="group bg-white/90 backdrop-blur-md border border-green-200/50 hover:bg-white/95 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden shadow-xl">
               <div className="relative h-72 overflow-hidden">
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -77,20 +83,20 @@ const LocationStories = () => {
                 
                 {/* Floating badges */}
                 <div className="absolute top-4 left-4 flex flex-col space-y-2">
-                  <div className={`inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-medium border ${getDifficultyColor(story.difficulty)}`}>
+                  <div className={`inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-medium border backdrop-blur-md ${getDifficultyColor(story.difficulty)}`}>
                     <span>{story.difficulty}</span>
                   </div>
-                  <div className="inline-flex items-center space-x-1 bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs">
-                    <Star className="h-3 w-3 text-yellow-400" />
+                  <div className="inline-flex items-center space-x-1 bg-white/90 backdrop-blur-md text-gray-800 px-3 py-1 rounded-full text-xs border border-white/50">
+                    <Star className="h-3 w-3 text-yellow-500" />
                     <span>{story.rating}</span>
                   </div>
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h4 className="text-2xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                  <h4 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                     {story.title}
                   </h4>
-                  <div className="flex items-center space-x-4 text-gray-300 text-sm">
+                  <div className="flex items-center space-x-4 text-green-100 text-sm">
                     <div className="flex items-center space-x-1">
                       <Clock className="h-4 w-4" />
                       <span>{story.duration}</span>
@@ -104,23 +110,23 @@ const LocationStories = () => {
               </div>
               
               <CardContent className="p-6">
-                <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                <p className="text-gray-700 text-sm mb-6 leading-relaxed">
                   {story.description}
                 </p>
                 
                 <div className="mb-6">
-                  <h5 className="text-white font-semibold mb-3">Experience Highlights:</h5>
+                  <h5 className="text-gray-900 font-semibold mb-3">Experience Highlights:</h5>
                   <div className="grid grid-cols-2 gap-2">
                     {story.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-xs text-gray-400">
-                        <div className="w-1.5 h-1.5 bg-orange-400 rounded-full flex-shrink-0" />
+                      <div key={idx} className="flex items-center space-x-2 text-xs text-gray-600">
+                        <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full flex-shrink-0" />
                         <span>{highlight}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <Button className="w-full bg-gradient-to-r from-orange-500/80 to-pink-600/80 hover:from-orange-600 hover:to-pink-700 text-white border-0 backdrop-blur-sm">
+                <Button className="w-full bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white border-0 shadow-lg">
                   Explore This Story
                 </Button>
               </CardContent>

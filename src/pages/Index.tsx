@@ -57,31 +57,39 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50/80 via-white/90 to-green-100/80 relative">
+      {/* Background Mountain Image */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30 -z-10"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+        }}
+      />
+      
       {/* Floating Header */}
-      <header className="fixed top-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl z-50">
+      <header className="fixed top-4 left-4 right-4 bg-white/95 backdrop-blur-lg border border-green-200/50 rounded-2xl shadow-xl z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
                 <MapPin className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">
+                <h1 className="text-2xl font-bold text-gray-900">
                   KasolJourneys
                 </h1>
-                <p className="text-sm text-gray-200">Gateway to Himalayan Magic</p>
+                <p className="text-sm text-gray-600">Gateway to Himalayan Magic</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <Button
                 onClick={() => handleWhatsAppRedirect()}
-                className="bg-green-500/90 hover:bg-green-600 text-white backdrop-blur-sm border border-green-400/50 flex items-center space-x-2"
+                className="bg-green-600 hover:bg-green-700 text-white shadow-lg border-0 flex items-center space-x-2"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span className="hidden sm:inline">WhatsApp</span>
               </Button>
-              <div className="flex items-center space-x-2 text-sm text-gray-200">
+              <div className="flex items-center space-x-2 text-sm text-gray-700">
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">{whatsappNumber}</span>
               </div>
@@ -90,34 +98,29 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section with Parallax Effect */}
-      <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1464822759844-d150baec93c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 via-indigo-900/70 to-pink-900/90" />
-        
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-32 h-32 bg-orange-400/20 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-pink-400/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/60 via-green-800/40 to-teal-900/60" />
         
         <div className="relative z-10 max-w-5xl mx-auto px-4 pt-20">
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8">
-            <Star className="h-5 w-5 text-yellow-400" />
-            <span className="text-sm font-medium">Rated #1 Kasol Travel Experience</span>
+          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-3 mb-8">
+            <Star className="h-5 w-5 text-yellow-300" />
+            <span className="text-sm font-medium text-white">Rated #1 Kasol Travel Experience</span>
           </div>
           
-          <h2 className="text-6xl md:text-8xl font-bold mb-8 animate-fade-in leading-tight">
+          <h2 className="text-6xl md:text-8xl font-bold mb-8 animate-fade-in leading-tight text-white">
             Where Mountains{" "}
-            <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-300 via-green-400 to-teal-300 bg-clip-text text-transparent">
               Meet Magic
             </span>
           </h2>
-          <p className="text-xl md:text-2xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-12 text-green-100 max-w-4xl mx-auto leading-relaxed">
             Embark on extraordinary journeys through the mystical valleys of Kasol. 
             Where every trail tells a story, every peak holds a secret, and every moment becomes a memory.
           </p>
@@ -126,14 +129,14 @@ const Index = () => {
             <Button
               size="lg"
               onClick={() => handleWhatsAppRedirect("travel packages")}
-              className="bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 text-white px-10 py-6 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white px-10 py-6 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
             >
               Begin Your Adventure
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-10 py-6 text-lg rounded-full"
+              className="border-2 border-white/60 bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-10 py-6 text-lg rounded-full shadow-xl"
               onClick={() => document.getElementById('stories')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Discover Stories
@@ -142,17 +145,17 @@ const Index = () => {
 
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-              <div className="text-3xl font-bold text-orange-400 mb-2">500+</div>
-              <div className="text-sm text-gray-300">Happy Travelers</div>
+            <div className="text-center bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl p-6 shadow-xl">
+              <div className="text-3xl font-bold text-emerald-300 mb-2">500+</div>
+              <div className="text-sm text-green-100">Happy Travelers</div>
             </div>
-            <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-              <div className="text-3xl font-bold text-pink-400 mb-2">50+</div>
-              <div className="text-sm text-gray-300">Scenic Locations</div>
+            <div className="text-center bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl p-6 shadow-xl">
+              <div className="text-3xl font-bold text-green-300 mb-2">50+</div>
+              <div className="text-sm text-green-100">Scenic Locations</div>
             </div>
-            <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-              <div className="text-3xl font-bold text-purple-400 mb-2">5★</div>
-              <div className="text-sm text-gray-300">Average Rating</div>
+            <div className="text-center bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl p-6 shadow-xl">
+              <div className="text-3xl font-bold text-teal-300 mb-2">5★</div>
+              <div className="text-sm text-green-100">Average Rating</div>
             </div>
           </div>
         </div>
@@ -168,20 +171,20 @@ const Index = () => {
       />
 
       {/* Services Section */}
-      <section id="services" className="py-24 px-4 bg-gradient-to-b from-transparent to-black/20">
+      <section id="services" className="py-24 px-4 bg-white/50 backdrop-blur-sm">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 mb-6">
-              <MapPin className="h-5 w-5 text-orange-400" />
-              <span className="text-sm font-medium text-white">Premium Services</span>
+            <div className="inline-flex items-center space-x-2 bg-emerald-100/80 backdrop-blur-sm border border-emerald-200 rounded-full px-6 py-3 mb-6">
+              <MapPin className="h-5 w-5 text-emerald-600" />
+              <span className="text-sm font-medium text-emerald-800">Premium Services</span>
             </div>
-            <h3 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            <h3 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
               Curated for{" "}
-              <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
                 Adventurers
               </span>
             </h3>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               From soul-stirring journeys to adrenaline-pumping adventures, 
               we craft experiences that transform travelers into storytellers.
             </p>
@@ -201,9 +204,14 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/95 to-pink-900/95"></div>
+      <section className="py-24 bg-gradient-to-r from-emerald-800/90 to-green-900/90 text-white relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 to-green-900/95"></div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
           <h3 className="text-5xl font-bold mb-8">Your Adventure Awaits</h3>
@@ -216,7 +224,7 @@ const Index = () => {
             <Button
               size="lg"
               onClick={() => handleWhatsAppRedirect()}
-              className="bg-green-500/90 hover:bg-green-600 backdrop-blur-sm border border-green-400/50 text-white flex items-center space-x-3 px-10 py-6 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="bg-green-600 hover:bg-green-700 text-white flex items-center space-x-3 px-10 py-6 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
             >
               <MessageCircle className="h-5 w-5" />
               <span>Chat on WhatsApp</span>
@@ -226,7 +234,7 @@ const Index = () => {
               size="lg"
               variant="outline"
               onClick={() => setShowBookingForm(true)}
-              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm flex items-center space-x-3 px-10 py-6 rounded-full"
+              className="border-2 border-white/60 bg-white/20 text-white hover:bg-white/30 backdrop-blur-md flex items-center space-x-3 px-10 py-6 rounded-full shadow-xl"
             >
               <Mail className="h-5 w-5" />
               <span>Send Email Inquiry</span>
@@ -234,39 +242,39 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <Phone className="h-8 w-8 text-green-400 mx-auto mb-4" />
+            <div className="bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl p-8 shadow-xl">
+              <Phone className="h-8 w-8 text-green-300 mx-auto mb-4" />
               <h4 className="font-semibold mb-2">Call Us</h4>
-              <p className="text-gray-300">+91 {whatsappNumber}</p>
+              <p className="text-green-100">+91 {whatsappNumber}</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <Mail className="h-8 w-8 text-blue-400 mx-auto mb-4" />
+            <div className="bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl p-8 shadow-xl">
+              <Mail className="h-8 w-8 text-emerald-300 mx-auto mb-4" />
               <h4 className="font-semibold mb-2">Email Us</h4>
-              <p className="text-gray-300 break-all">{emailAddress}</p>
+              <p className="text-green-100 break-all">{emailAddress}</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <MapPin className="h-8 w-8 text-orange-400 mx-auto mb-4" />
+            <div className="bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl p-8 shadow-xl">
+              <MapPin className="h-8 w-8 text-teal-300 mx-auto mb-4" />
               <h4 className="font-semibold mb-2">Visit Us</h4>
-              <p className="text-gray-300">Kasol, Parvati Valley</p>
+              <p className="text-green-100">Kasol, Parvati Valley</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-sm border-t border-white/10 text-white py-12">
+      <footer className="bg-white/80 backdrop-blur-md border-t border-green-200/50 text-gray-800 py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center">
               <MapPin className="h-5 w-5 text-white" />
             </div>
-            <h4 className="text-2xl font-bold">KasolJourneys</h4>
+            <h4 className="text-2xl font-bold text-gray-900">KasolJourneys</h4>
           </div>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Creating magical moments in the heart of the Himalayas. 
             Where every journey becomes a story worth telling.
           </p>
-          <div className="border-t border-white/10 pt-6">
+          <div className="border-t border-green-200 pt-6">
             <p className="text-gray-500">
               © 2024 KasolJourneys. All rights reserved. | Crafted with ❤️ for mountain souls
             </p>
