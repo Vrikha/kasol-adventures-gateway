@@ -40,7 +40,7 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
       popular: false
     },
     {
-      name: "Honda Activa 6G",
+      name: "Scooty",
       description: "Smooth, reliable, and perfect for comfortable rides around Kasol and nearby valleys.",
       image: "photo-1571068316344-75bc76f77890",
       price: "₹800/day",
@@ -52,25 +52,11 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
         type: "Scooter"
       },
       popular: false
-    },
-    {
-      name: "Bajaj Pulsar NS200",
-      description: "Sporty performance meets mountain adventure. Feel the thrill on every curve.",
-      image: "photo-1558454114-f6aa5e0623e5",
-      price: "₹1,000/day",
-      features: ["200cc Engine", "Sporty Design", "Performance Bike", "Mountain Ready"],
-      specs: {
-        engine: "200cc",
-        mileage: "35-40 kmpl",
-        capacity: "2 Riders",
-        type: "Sports"
-      },
-      popular: false
     }
   ];
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-emerald-50/70 via-white/80 to-green-50/70 backdrop-blur-sm relative">
+    <section className="py-24 px-4 bg-gradient-to-b from-yellow-50/70 via-white/80 to-amber-50/70 backdrop-blur-sm relative">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-15"
         style={{
@@ -79,13 +65,13 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
       />
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-blue-100/80 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-3 mb-6">
-            <Gauge className="h-5 w-5 text-blue-600" />
-            <span className="text-sm font-medium text-blue-800">Premium Rentals</span>
+          <div className="inline-flex items-center space-x-2 bg-yellow-100/80 backdrop-blur-sm border border-yellow-200 rounded-full px-6 py-3 mb-6">
+            <Gauge className="h-5 w-5 text-yellow-600" />
+            <span className="text-sm font-medium text-yellow-800">Premium Rentals</span>
           </div>
           <h3 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
             Ride the{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
               Mountains
             </span>
           </h3>
@@ -95,9 +81,9 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {bikes.map((bike, index) => (
-            <Card key={index} className="group bg-white/95 backdrop-blur-md border border-green-200/50 hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden shadow-xl">
+            <Card key={index} className="group bg-white/95 backdrop-blur-md border border-yellow-200/50 hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden shadow-xl">
               <div className="relative h-64 overflow-hidden">
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -121,7 +107,7 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
               </div>
               
               <CardHeader className="pb-3">
-                <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-yellow-600 transition-colors">
                   {bike.name}
                 </CardTitle>
                 <p className="text-gray-700 text-base leading-relaxed">
@@ -132,23 +118,23 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
               <CardContent className="space-y-6">
                 {/* Specifications */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-emerald-50/80 backdrop-blur-sm border border-emerald-200/50 rounded-lg p-3 text-center">
-                    <Fuel className="h-5 w-5 text-blue-600 mx-auto mb-1" />
+                  <div className="bg-yellow-50/80 backdrop-blur-sm border border-yellow-200/50 rounded-lg p-3 text-center">
+                    <Fuel className="h-5 w-5 text-yellow-600 mx-auto mb-1" />
                     <div className="text-xs text-gray-600">Engine</div>
                     <div className="text-sm font-semibold text-gray-900">{bike.specs.engine}</div>
                   </div>
-                  <div className="bg-green-50/80 backdrop-blur-sm border border-green-200/50 rounded-lg p-3 text-center">
-                    <Gauge className="h-5 w-5 text-green-600 mx-auto mb-1" />
+                  <div className="bg-amber-50/80 backdrop-blur-sm border border-amber-200/50 rounded-lg p-3 text-center">
+                    <Gauge className="h-5 w-5 text-amber-600 mx-auto mb-1" />
                     <div className="text-xs text-gray-600">Mileage</div>
                     <div className="text-sm font-semibold text-gray-900">{bike.specs.mileage}</div>
                   </div>
-                  <div className="bg-purple-50/80 backdrop-blur-sm border border-purple-200/50 rounded-lg p-3 text-center">
-                    <Users className="h-5 w-5 text-purple-600 mx-auto mb-1" />
+                  <div className="bg-orange-50/80 backdrop-blur-sm border border-orange-200/50 rounded-lg p-3 text-center">
+                    <Users className="h-5 w-5 text-orange-600 mx-auto mb-1" />
                     <div className="text-xs text-gray-600">Capacity</div>
                     <div className="text-sm font-semibold text-gray-900">{bike.specs.capacity}</div>
                   </div>
-                  <div className="bg-orange-50/80 backdrop-blur-sm border border-orange-200/50 rounded-lg p-3 text-center">
-                    <Shield className="h-5 w-5 text-orange-600 mx-auto mb-1" />
+                  <div className="bg-yellow-50/80 backdrop-blur-sm border border-yellow-200/50 rounded-lg p-3 text-center">
+                    <Shield className="h-5 w-5 text-yellow-600 mx-auto mb-1" />
                     <div className="text-xs text-gray-600">Type</div>
                     <div className="text-sm font-semibold text-gray-900">{bike.specs.type}</div>
                   </div>
@@ -160,7 +146,7 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
                   <div className="grid grid-cols-2 gap-2">
                     {bike.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2 text-sm text-gray-700">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0" />
+                        <div className="w-2 h-2 bg-yellow-500 rounded-full flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -178,7 +164,7 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
                   <Button
                     onClick={() => onEmail(`${bike.name} rental`)}
                     variant="outline"
-                    className="flex-1 border-2 border-gray-300 bg-white/80 text-gray-800 hover:bg-gray-50 backdrop-blur-sm flex items-center justify-center space-x-2"
+                    className="flex-1 border-2 border-gray-800 bg-white/80 text-gray-800 hover:bg-gray-50 backdrop-blur-sm flex items-center justify-center space-x-2"
                   >
                     <Mail className="h-4 w-4" />
                     <span>Email Query</span>
@@ -190,16 +176,16 @@ const TwoWheelerSection = ({ onWhatsApp, onEmail }: TwoWheelerSectionProps) => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 text-center bg-white/90 backdrop-blur-md border border-green-200/50 rounded-2xl p-8 shadow-xl">
+        <div className="mt-16 text-center bg-white/90 backdrop-blur-md border border-yellow-200/50 rounded-2xl p-8 shadow-xl">
           <h4 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Rentals?</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
             <div>
-              <Shield className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <Shield className="h-8 w-8 text-yellow-600 mx-auto mb-3" />
               <h5 className="font-semibold text-gray-900 mb-2">Fully Insured</h5>
               <p className="text-sm">All vehicles come with comprehensive insurance coverage</p>
             </div>
             <div>
-              <Fuel className="h-8 w-8 text-green-600 mx-auto mb-3" />
+              <Fuel className="h-8 w-8 text-amber-600 mx-auto mb-3" />
               <h5 className="font-semibold text-gray-900 mb-2">Well Maintained</h5>
               <p className="text-sm">Regular servicing and quality checks before every rental</p>
             </div>

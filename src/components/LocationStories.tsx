@@ -3,7 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, Star } from "lucide-react";
 
-const LocationStories = () => {
+interface LocationStoriesProps {
+  onWhatsApp: (service?: string) => void;
+  onEmail: (service: string) => void;
+}
+
+const LocationStories = ({ onWhatsApp, onEmail }: LocationStoriesProps) => {
   const stories = [
     {
       title: "The Enchanted Village of Malana",
@@ -44,7 +49,7 @@ const LocationStories = () => {
   };
 
   return (
-    <section id="stories" className="py-24 px-4 bg-gradient-to-b from-white/70 via-emerald-50/50 to-white/70 backdrop-blur-sm relative">
+    <section id="stories" className="py-24 px-4 bg-gradient-to-b from-white/70 via-yellow-50/50 to-white/70 backdrop-blur-sm relative">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{
@@ -53,13 +58,13 @@ const LocationStories = () => {
       />
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-emerald-100/80 backdrop-blur-sm border border-emerald-200 rounded-full px-6 py-3 mb-6">
-            <Star className="h-5 w-5 text-emerald-600" />
-            <span className="text-sm font-medium text-emerald-800">Legendary Destinations</span>
+          <div className="inline-flex items-center space-x-2 bg-yellow-100/80 backdrop-blur-sm border border-yellow-200 rounded-full px-6 py-3 mb-6">
+            <Star className="h-5 w-5 text-yellow-600" />
+            <span className="text-sm font-medium text-yellow-800">Legendary Destinations</span>
           </div>
           <h3 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
             Stories That{" "}
-            <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
               Inspire
             </span>
           </h3>
@@ -71,7 +76,7 @@ const LocationStories = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {stories.map((story, index) => (
-            <Card key={index} className="group bg-white/90 backdrop-blur-md border border-green-200/50 hover:bg-white/95 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden shadow-xl">
+            <Card key={index} className="group bg-white/90 backdrop-blur-md border border-yellow-200/50 hover:bg-white/95 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden shadow-xl">
               <div className="relative h-72 overflow-hidden">
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -93,10 +98,10 @@ const LocationStories = () => {
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h4 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                  <h4 className="text-2xl font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors">
                     {story.title}
                   </h4>
-                  <div className="flex items-center space-x-4 text-green-100 text-sm">
+                  <div className="flex items-center space-x-4 text-yellow-100 text-sm">
                     <div className="flex items-center space-x-1">
                       <Clock className="h-4 w-4" />
                       <span>{story.duration}</span>
@@ -119,15 +124,18 @@ const LocationStories = () => {
                   <div className="grid grid-cols-2 gap-2">
                     {story.highlights.map((highlight, idx) => (
                       <div key={idx} className="flex items-center space-x-2 text-xs text-gray-600">
-                        <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full flex-shrink-0" />
                         <span>{highlight}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <Button className="w-full bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white border-0 shadow-lg">
-                  Explore This Story
+                <Button 
+                  onClick={() => onWhatsApp(`${story.title} tour`)}
+                  className="w-full bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-700 hover:to-amber-800 text-white border-0 shadow-lg"
+                >
+                  Book Now
                 </Button>
               </CardContent>
             </Card>
